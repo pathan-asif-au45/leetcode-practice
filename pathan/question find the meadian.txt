@@ -1,0 +1,18 @@
+unction findMedian(arr) {
+    let bucket = Array(arr.length + 10000).fill(0), freq = 0;
+        
+        for(let i = 0; i < arr.length; i++) {
+            if(!bucket[arr[i] + 10000]) bucket[arr[i] + 10000]= 0;
+            bucket[arr[i] + 10000]++;
+        }    
+        
+        let count = 0;
+        for(let i = 0; i < bucket.length; i++) {
+            count += bucket[i];
+            if(count > parseInt(arr.length / 2)) {
+                return i - 10000;
+            }        
+        }
+    
+
+}
